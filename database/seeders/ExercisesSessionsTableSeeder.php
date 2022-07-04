@@ -16,7 +16,7 @@ class ExercisesSessionsTableSeeder extends Seeder
     {
         DB::table('exercises_sessions')->delete();
 
-        $exercise = DB::table('exercises')->where('name', 'Press Banca')->first();
+        $exercise = DB::table('exercises')->where('name', 'Press banca inclinado')->first();
         $session = DB::table('sessions')->where('name', 'Sesión de empuje')->first();
 
         $equipmentName = strtolower($exercise->equipment);
@@ -27,10 +27,10 @@ class ExercisesSessionsTableSeeder extends Seeder
             'exerciseId' => $exercise->id,
             'name' => $name,
             'series' => 4,
-            'reps' => 10,
+            'minReps' => 10,
+            'maxReps' => 12,
             'rest' => 60,
-            'weight' => 50,
-            'isRIR' => false,
+            'RIR' => 1,
             'observations' => 'Me ha molestado un poco el hombro',
             'sessionId' => $session->id
         ]);

@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('birth');
             $table->string('type');
+            $table->unsignedBigInteger('trainer');
+            $table->foreign('trainer')->references('id')->on('users');
             $table->rememberToken();
             $table->timestamps();
         });

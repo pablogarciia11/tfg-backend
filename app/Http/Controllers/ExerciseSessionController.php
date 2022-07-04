@@ -15,7 +15,7 @@ class ExerciseSessionController extends Controller
     public function index()
     {
         $exercisesSessions = ExerciseSession::all();
-        return $exercisesSession;
+        return $exercisesSessions;
     }
 
     /**
@@ -30,10 +30,10 @@ class ExerciseSessionController extends Controller
         $exerciseSession->exerciseId = $request->exerciseId;
         $exerciseSession->name = $request->name;
         $exerciseSession->series = $request->series;
-        $exerciseSession->reps = $request->reps;
+        $exerciseSession->minReps = $request->minReps;
+        $exerciseSession->maxReps = $request->maxReps;
         $exerciseSession->rest = $request->rest;
-        $exerciseSession->weight = $request->weight;
-        $exerciseSession->isRIR = $request->isRIR;
+        $exerciseSession->RIR = $request->RIR;
         $exerciseSession->observations = $request->observations;
         $exerciseSession->sessionId = $request->sessionId;
 
@@ -53,10 +53,10 @@ class ExerciseSessionController extends Controller
         $exerciseSession->exerciseId = $request->exerciseId;
         $exerciseSession->name = $request->name;
         $exerciseSession->series = $request->series;
-        $exerciseSession->reps = $request->reps;
+        $exerciseSession->minReps = $request->minReps;
+        $exerciseSession->maxReps = $request->maxReps;
         $exerciseSession->rest = $request->rest;
-        $exerciseSession->weight = $request->weight;
-        $exerciseSession->isRIR = $request->isRIR;
+        $exerciseSession->RIR = $request->RIR;
         $exerciseSession->observations = $request->observations;
         $exerciseSession->sessionId = $request->sessionId;
 

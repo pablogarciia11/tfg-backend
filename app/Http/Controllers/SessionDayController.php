@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Routine;
+use Models\SessionDay;
 
-class RoutineController extends Controller
+class SessionDayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        $routines = Routine::all();
-        return $routines;
+        $sessionDays = SessionDay::all();
+        return $sessionDays;
     }
 
     /**
@@ -26,12 +26,11 @@ class RoutineController extends Controller
      */
     public function store(Request $request)
     {
-        $routine = new Routine();
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $sessionDay = new SessionDay();
+        $sessionDay->day = $request->id;
+        $sessionDay->microcycleId = $request->microcycleId;
 
-        $routine->save();
+        $sessionDay->save();
     }
 
     /**
@@ -43,14 +42,12 @@ class RoutineController extends Controller
      */
     public function update(Request $request)
     {
-        $routine = Routine::findOrFail($request->id);
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $sessionDay = SessionDay::findOrFail($request->id);
+        $sessionDay->day = $request->id;
+        $sessionDay->microcycleId = $request->microcycleId;
 
-        $routine->save();
-        
-        return $routine;
+        $sessionDay->save();
+        return $sessionday;
     }
 
     /**
@@ -61,7 +58,7 @@ class RoutineController extends Controller
      */
     public function destroy(Request $request)
     {
-        $routine = Routine::destroy($request->id);
-        return $routine;
+        $sessionDay = SessionDay::destroy($request->id);
+        return $sessionDay;
     }
 }

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Routine;
+use Models\Microcycle;
 
-class RoutineController extends Controller
+class MicrocycleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        $routines = Routine::all();
-        return $routines;
+        $microcycles = Microcycle::all();
+        return $microcycles;
     }
 
     /**
@@ -26,12 +26,12 @@ class RoutineController extends Controller
      */
     public function store(Request $request)
     {
-        $routine = new Routine();
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $microcycle = new Microcycle();
+        $microcycle->number = $request->number;
+        $microcycle->times = $request->times;
+        $microcycle->routineId = $request->routineId;
 
-        $routine->save();
+        $microcycle->save();
     }
 
     /**
@@ -43,14 +43,13 @@ class RoutineController extends Controller
      */
     public function update(Request $request)
     {
-        $routine = Routine::findOrFail($request->id);
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $microcycle = Microcycle::findOrFail($request->id);
+        $microcycle->number = $request->number;
+        $microcycle->times = $request->times;
+        $microcycle->routineId = $request->routineId;
 
-        $routine->save();
-        
-        return $routine;
+        $microcycle->save();
+        return $microcycle;
     }
 
     /**
@@ -61,7 +60,7 @@ class RoutineController extends Controller
      */
     public function destroy(Request $request)
     {
-        $routine = Routine::destroy($request->id);
-        return $routine;
+        $microcycle = Microcycle::destroy($request->id);
+        return $microcycle;
     }
 }

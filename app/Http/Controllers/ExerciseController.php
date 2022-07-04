@@ -18,6 +18,10 @@ class ExerciseController extends Controller
         return $exercises;
     }
 
+    public function retrieve($id) {
+        return Exercise::findOrFail($id);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -28,8 +32,8 @@ class ExerciseController extends Controller
     {
         $exercise = new Exercise();
         $exercise->name = $request->name;
-        $exercise->muscle = $request->muscle;
         $exercise->equipment = $request->equipment;
+        $exercise->fullName = $request->name . ' con ' . strtolower($request->equipment);
         $exercise->description = $request->description;
         $exercise->createdBy = $request->createdBy;
         $exercise->video = $request->video;
@@ -47,7 +51,11 @@ class ExerciseController extends Controller
     public function update(Request $request)
     {
         $exercise = Exercise::findOrFail($request->id);
-
+        $exercise->name = $request->name;
+        $exercise->equipment = $request->equipment;
+        $exercise->description = $request->description;
+        $exercise->createdBy = $request->createdBy;
+        $exercise->video = $request->video;
 
         $exercise->save();
         

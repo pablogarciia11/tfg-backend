@@ -23,7 +23,8 @@ class UsersTableSeeder extends Seeder
             'userName' => 'pgarcia',
             'password' => '1029u109219029',
             'birth' => '1998-10-16',
-            'type' => 'Usuario'
+            'type' => 'Usuario',
+            'trainer' => 1
         ]);
 
         DB::table('users')->insert([
@@ -33,7 +34,8 @@ class UsersTableSeeder extends Seeder
             'userName' => 'jcolado',
             'password' => '1029u109219029',
             'birth' => '1998-10-16',
-            'type' => 'Entrenador'
+            'type' => 'Entrenador',
+            'trainer' => 1
         ]);
     }
 }

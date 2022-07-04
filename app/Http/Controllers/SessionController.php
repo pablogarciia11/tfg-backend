@@ -28,13 +28,8 @@ class SessionController extends Controller
     {
         $session = new Session();
         $session->name = $request->name;
-        $session->objective = $request->objective;
-        $session->length = $request->length;
-        $session->date = $request->date;
         $session->description = $request->description;
         $session->createdBy = $request->createdBy;
-        $session->assignedTo = $request->assignedTo;
-        $session->routineId = $request->routineId;
 
         $session->save();
     }
@@ -50,13 +45,8 @@ class SessionController extends Controller
     {
         $session = Session::findOrFail($request->id);
         $session->name = $request->name;
-        $session->objective = $request->objective;
-        $session->length = $request->length;
-        $session->date = $request->date;
         $session->description = $request->description;
         $session->createdBy = $request->createdBy;
-        $session->assignedTo = $request->assignedTo;
-        $session->routineId = $request->routineId;
 
         $session->save();
         

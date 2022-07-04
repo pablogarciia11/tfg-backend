@@ -22,11 +22,20 @@ class DatabaseSeeder extends Seeder
         $this->call(ExercisesTableSeeder::class);
         $this->command->info('Exercises table seeded!');
 
+        $this->call(MusclesTableSeeder::class);
+        $this->command->info('Muscles table seeded!');
+
         $this->call(RoutinesTableSeeder::class);
         $this->command->info('Routines table seeded!');
 
+        $this->call(MicrocyclesTableSeeder::class);
+        $this->command->info('Microcycles table seeded!');
+
         $this->call(SessionsTableSeeder::class);
         $this->command->info('Sessions table seeded!');
+
+        $this->call(WeekDaysTableSeeder::class);
+        $this->command->info('WeekDays table seeded!');
 
         $this->call(ExercisesSessionsTableSeeder::class);
         $this->command->info('ExercisesSessions table seeded!');

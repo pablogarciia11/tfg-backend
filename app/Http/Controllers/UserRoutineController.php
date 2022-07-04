@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserRoutine;
 use Illuminate\Http\Request;
-use App\Models\Routine;
 
-class RoutineController extends Controller
+class UserRoutineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        $routines = Routine::all();
-        return $routines;
+        $usersRoutines = UserRoutine::all();
+        return $usersRoutines;
     }
 
     /**
@@ -26,42 +26,42 @@ class RoutineController extends Controller
      */
     public function store(Request $request)
     {
-        $routine = new Routine();
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $userRoutine = new UserRoutine();
+        $userRoutine->date = $request->date;
+        $userRoutine->userId = $request->userId;
+        $userRoutine->routineId = $request->routineId;
 
-        $routine->save();
+        $userRoutine->save();
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\UserRoutine  $userRoutine
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $routine = Routine::findOrFail($request->id);
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $userRoutine = UserRoutine::findOrFail($request->id);
+        $userRoutine->date = $request->date;
+        $userRoutine->userId = $request->userId;
+        $userRoutine->routineId = $request->routineId;
 
-        $routine->save();
-        
-        return $routine;
+        $userRoutine->save();
+
+        return $userRoutine;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\UserRoutine  $userRoutine
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
-        $routine = Routine::destroy($request->id);
-        return $routine;
+        $userRoutine = UserRoutine::destroy($request->id);
+        return $userRoutine;
     }
 }

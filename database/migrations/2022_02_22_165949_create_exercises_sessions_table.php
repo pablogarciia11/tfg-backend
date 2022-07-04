@@ -19,10 +19,10 @@ class CreateExercisesSessionsTable extends Migration
             $table->foreign('exerciseId')->references('id')->on('exercises')->onDelete('cascade');
             $table->string('name');
             $table->integer('series');
-            $table->integer('reps');
+            $table->integer('minReps');
+            $table->integer('maxReps');
             $table->integer('rest');
-            $table->double('weight');
-            $table->boolean('isRIR');
+            $table->integer('RIR');
             $table->string('observations');
             $table->unsignedBigInteger('sessionId');
             $table->foreign('sessionId')->references('id')->on('sessions')->onDelete('cascade');

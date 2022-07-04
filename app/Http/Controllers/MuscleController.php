@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Routine;
+use App\Models\Muscle;
+use DB;
 
-class RoutineController extends Controller
+class MuscleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,12 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        $routines = Routine::all();
-        return $routines;
+        $muscles = Muscle::all();
+        return $muscles;
+    }
+
+    public function retrieve($id) {
+        return DB::table('muscles')->where('exerciseId', $id);
     }
 
     /**
@@ -26,12 +31,12 @@ class RoutineController extends Controller
      */
     public function store(Request $request)
     {
-        $routine = new Routine();
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $muscle = new Muscle();
+        $muscle->name = $request->name;
+        $muscle->type = $request->type;
+        $muscle->exerciseId = $request->exerciseId;
 
-        $routine->save();
+        $muscle->save();
     }
 
     /**
@@ -43,14 +48,14 @@ class RoutineController extends Controller
      */
     public function update(Request $request)
     {
-        $routine = Routine::findOrFail($request->id);
-        $routine->name = $request->name;
-        $routine->description = $request->description;
-        $routine->createdBy = $request->createdBy;
+        $muscle = Muscle::findOrFail($request->id);
+        $muscle->name = $request->name;
+        $muscle->type = $request->type;
+        $muscle->exerciseId = $request->exerciseId;
 
-        $routine->save();
-        
-        return $routine;
+        $muscle->save();
+
+        return $muscle;
     }
 
     /**
@@ -61,7 +66,7 @@ class RoutineController extends Controller
      */
     public function destroy(Request $request)
     {
-        $routine = Routine::destroy($request->id);
-        return $routine;
+        $muscle = Request::destroy($request->id);
+        return $request;
     }
 }

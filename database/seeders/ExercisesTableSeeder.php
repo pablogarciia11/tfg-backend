@@ -19,21 +19,21 @@ class ExercisesTableSeeder extends Seeder
         $trainer = DB::table('users')->where('firstName', 'Juanjo')->first();
 
         DB::table('exercises')->insert([
-            'name' => 'Press Banca',
-            'muscle' => 'Pectoral',
-            'equipment' => 'Barra olimpica',
+            'name' => 'Press banca inclinado',
+            'equipment' => 'Mancuernas',
+            'fullName'=> 'Press banca inclinado con mancuernas',
             'description' => '',
-            'video' => '',
-            'createdBy' => $trainer->id
+            'createdBy' => $trainer->id,
+            'video' => ''            
         ]);
 
         DB::table('exercises')->insert([
             'name' => 'Sentadilla profunda',
-            'muscle' => 'Cuádriceps',
             'equipment' => 'Barra olimpica',
+            'fullName' => 'Sentadilla profunda con barra olímpica',
             'description' => '',
-            'video' => '',
-            'createdBy' => $trainer->id
+            'createdBy' => $trainer->id,
+            'video' => ''
         ]);
     }
 }
