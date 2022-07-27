@@ -19,10 +19,6 @@ class MuscleController extends Controller
         return $muscles;
     }
 
-    public function retrieve($id) {
-        return DB::table('muscles')->where('exerciseId', $id);
-    }
-
     /**
      * Store a newly created resource in storage.
      *

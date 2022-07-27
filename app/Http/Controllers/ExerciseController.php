@@ -12,14 +12,19 @@ class ExerciseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $exercises = Exercise::all();
         return $exercises;
     }
 
-    public function retrieve($id) {
-        return Exercise::findOrFail($id);
+    public function retrieve(Request $request) 
+    {
+        $exercises = Exercise::where('fullName', 'LIKE', '%'.$request->search.'%')
+                                ->orWhere('mainMuscle', 'LIKE', '%'.$request->search.'%')
+                                ->orWhere('secondMuscle', 'LIKE', '%'.$request->search.'%')
+                                ->get();
+        return $exercises;
     }
 
     /**
@@ -33,12 +38,16 @@ class ExerciseController extends Controller
         $exercise = new Exercise();
         $exercise->name = $request->name;
         $exercise->equipment = $request->equipment;
-        $exercise->fullName = $request->name . ' con ' . strtolower($request->equipment);
+        $exercise->fullName = $request->fullName;
+        $exercise->mainMuscle = $request->mainMuscle;
+        $exercise->secondMuscle = $request->secondMuscle;
         $exercise->description = $request->description;
         $exercise->createdBy = $request->createdBy;
         $exercise->video = $request->video;
 
         $exercise->save();
+
+        return $exercise;
     }
 
     /**
@@ -53,6 +62,9 @@ class ExerciseController extends Controller
         $exercise = Exercise::findOrFail($request->id);
         $exercise->name = $request->name;
         $exercise->equipment = $request->equipment;
+        $exercise->fullName = $request->fullName;
+        $exercise->mainMuscle = $request->mainMuscle;
+        $exercise->secondMuscle = $request->secondMuscle;
         $exercise->description = $request->description;
         $exercise->createdBy = $request->createdBy;
         $exercise->video = $request->video;

@@ -22,6 +22,8 @@ class ExercisesTableSeeder extends Seeder
             'name' => 'Press banca inclinado',
             'equipment' => 'Mancuernas',
             'fullName'=> 'Press banca inclinado con mancuernas',
+            'mainMuscle' => 'Pectoral',
+            'secondMuscle' => 'Deltoides',
             'description' => '',
             'createdBy' => $trainer->id,
             'video' => ''            
@@ -29,8 +31,10 @@ class ExercisesTableSeeder extends Seeder
 
         DB::table('exercises')->insert([
             'name' => 'Sentadilla profunda',
-            'equipment' => 'Barra olimpica',
+            'equipment' => 'Barra olímpica',
             'fullName' => 'Sentadilla profunda con barra olímpica',
+            'mainMuscle' => 'Cuádriceps',
+            'secondMuscle' => 'Glúteo',
             'description' => '',
             'createdBy' => $trainer->id,
             'video' => ''

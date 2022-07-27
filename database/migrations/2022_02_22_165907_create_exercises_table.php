@@ -16,12 +16,14 @@ class CreateExercisesTable extends Migration
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('equipment');
-            $table->string('fullName')->unique();
-            $table->string('description');
+            $table->string('equipment')->nullable();
+            $table->string('fullName');
+            $table->string('mainMuscle');
+            $table->string('secondMuscle')->nullable();
+            $table->string('description')->nullable();
             $table->unsignedBigInteger('createdBy');
             $table->foreign('createdBy')->references('id')->on('users')->onDelete('cascade');
-            $table->string('video');
+            $table->string('video')->nullable();
             $table->timestamps();
         });
     }

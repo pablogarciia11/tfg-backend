@@ -22,9 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ExercisesTableSeeder::class);
         $this->command->info('Exercises table seeded!');
 
-        $this->call(MusclesTableSeeder::class);
-        $this->command->info('Muscles table seeded!');
-
         $this->call(RoutinesTableSeeder::class);
         $this->command->info('Routines table seeded!');
 
