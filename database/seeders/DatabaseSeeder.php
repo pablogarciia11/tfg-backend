@@ -25,13 +25,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RoutinesTableSeeder::class);
         $this->command->info('Routines table seeded!');
 
-        $this->call(MicrocyclesTableSeeder::class);
-        $this->command->info('Microcycles table seeded!');
-
         $this->call(SessionsTableSeeder::class);
         $this->command->info('Sessions table seeded!');
 
-        $this->call(WeekDaysTableSeeder::class);
+        $this->call(SessionRoutineTableSeeder::class);
         $this->command->info('WeekDays table seeded!');
 
         $this->call(ExercisesSessionsTableSeeder::class);

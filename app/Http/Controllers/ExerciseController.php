@@ -14,7 +14,7 @@ class ExerciseController extends Controller
      */
     public function index(Request $request)
     {
-        $exercises = Exercise::all();
+        $exercises = Exercise::orderBy('fullName')->get();
         return $exercises;
     }
 

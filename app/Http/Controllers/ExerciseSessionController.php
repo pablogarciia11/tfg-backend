@@ -18,6 +18,13 @@ class ExerciseSessionController extends Controller
         return $exercisesSessions;
     }
 
+    public function retrieve(Request $request) 
+    {
+        $exercisesSession = ExerciseSession::where('sessionId', $request->sessionId)
+                                                ->get();
+        return $exercisesSession;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,6 +43,7 @@ class ExerciseSessionController extends Controller
         $exerciseSession->RIR = $request->RIR;
         $exerciseSession->observations = $request->observations;
         $exerciseSession->sessionId = $request->sessionId;
+        $exerciseSession->sessionRoutineId = $request->sessionRoutineId;
 
         $exerciseSession->save();
     }
@@ -59,6 +67,7 @@ class ExerciseSessionController extends Controller
         $exerciseSession->RIR = $request->RIR;
         $exerciseSession->observations = $request->observations;
         $exerciseSession->sessionId = $request->sessionId;
+        $exerciseSession->sessionRoutineId = $request->sessionRoutineId;
 
         $exerciseSession->save();
         

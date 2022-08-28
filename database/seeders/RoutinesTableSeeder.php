@@ -21,8 +21,14 @@ class RoutinesTableSeeder extends Seeder
 
         DB::table('routines')->insert([
             'name' => 'Rutina fullbody',
+            'length' => 1,
+            'startDate' => date('Y-m-d'),
+            'endDate' => '2022-09-07',
             'description' => 'Rutina para entrenar todo el cuerpo',
-            'createdBy' => $user->id
+            'completed' => false,
+            'userName' => $user->firstName . ' ' . $user->lastName,
+            'userId' => $user->id,
+            'createdBy' => $trainer->id
         ]);
     }
 }

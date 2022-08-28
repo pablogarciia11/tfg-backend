@@ -17,15 +17,17 @@ class CreateExercisesSessionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('exerciseId');
             $table->foreign('exerciseId')->references('id')->on('exercises')->onDelete('cascade');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->integer('series');
             $table->integer('minReps');
-            $table->integer('maxReps');
+            $table->integer('maxReps')->nullable();
             $table->integer('rest');
             $table->integer('RIR');
-            $table->string('observations');
-            $table->unsignedBigInteger('sessionId');
+            $table->string('observations')->nullable();
+            $table->unsignedBigInteger('sessionId')->nullable();
             $table->foreign('sessionId')->references('id')->on('sessions')->onDelete('cascade');
+            $table->unsignedBigInteger('sessionRoutineId')->nullable();
+            $table->foreign('sessionRoutineId')->references('id')->on('sessions_routines')->onDelete('cascade');
             $table->timestamps();
         });
     }

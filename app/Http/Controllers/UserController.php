@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -16,6 +17,17 @@ class UserController extends Controller
     {
         $users = User::all();
         return $users;
+    }
+
+    public function retrieve(Request $request) 
+    {   
+        $user = User::where('email', $request->email)
+                        ->get()->first();
+        if($user && Hash::check($request->password, $user->password)) {                
+            return $user;
+        } else {
+            return -1;
+        }
     }
 
     /**
@@ -31,12 +43,14 @@ class UserController extends Controller
         $user->lastName = $request->lastName;
         $user->email = $request->email;
         $user->userName = $request->userName;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->birth = $request->birth;
-        $user->type = $request->type;
+        $user->role = $request->role;
         $user->trainer = $request->trainer;
 
         $user->save();
+
+        return $user;
     }
 
     /**
@@ -55,7 +69,7 @@ class UserController extends Controller
         $user->userName = $request->userName;
         $user->password = $request->password;
         $user->birth = $request->birth;
-        $user->type = $request->type;
+        $user->role = $request->role;
         $user->trainer = $request->trainer;
 
         $user->save();
