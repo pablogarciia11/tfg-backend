@@ -65,3 +65,10 @@ Route::post('/users/{email}', 'App\Http\Controllers\UserController@retrieve');
 Route::post('/users', 'App\Http\Controllers\UserController@store');
 Route::put('/users/{id}', 'App\Http\Controllers\UserController@update');
 Route::delete('/users/{id}', 'App\Http\Controllers\UserController@destroy');
+
+// Peticiones
+Route::get('/petitions', 'App\Http\Controllers\PetitionController@index');
+Route::post('/petitions/{id}', 'App\Http\Controllers\PetitionController@retrieve');
+Route::post('/petitions', 'App\Http\Controllers\PetitionController@store');
+Route::put('/petitions/{id}', 'App\Http\Controllers\PetitionController@update');
+Route::delete('/petitions/{id}', 'App\Http\Controllers\PetitionController@destroy');

@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->command->info('Users table seeded!');
 
+        $this->call(PetitionsTableSeeder::class);
+        $this->command->info('Petitions table seeded!');
+
         $this->call(InfoTableSeeder::class);
         $this->command->info('Info table seeded!');
 
