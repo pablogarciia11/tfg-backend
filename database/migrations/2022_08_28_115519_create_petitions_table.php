@@ -17,6 +17,8 @@ class CreatePetitionsTable extends Migration
             $table->id();
             $table->date('date');
             $table->string('status');
+            $table->string('senderName');
+            $table->string('senderUserName');
             $table->unsignedBigInteger('sender');
             $table->foreign('sender')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('receiver');

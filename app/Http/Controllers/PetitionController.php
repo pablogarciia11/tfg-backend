@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Petition;
+use App\Models\User;
 
 class PetitionController extends Controller
 {
@@ -31,11 +32,15 @@ class PetitionController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::find($request->sender);
+
         $petition = new Petition();
 
         $petition->date = $request->date;
         $petition->status = $request->status;
         $petition->sender = $request->sender;
+        $petition->senderName = $user->fullName;
+        $petition->senderUserName = $user->userName;
         $petition->receiver = $request->receiver;
 
         $petition->save();
@@ -51,11 +56,15 @@ class PetitionController extends Controller
      */
     public function update(Request $request)
     {
+        $user = User::find($request->sender);
+
         $petition = Petition::findOrFail($request->id);
 
         $petition->date = $request->date;
         $petition->status = $request->status;
         $petition->sender = $request->sender;
+        $petition->senderName = $user->fullName;
+        $petition->senderUserName = $user->userName;
         $petition->receiver = $request->receiver;
 
         $petition->save();

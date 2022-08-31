@@ -22,6 +22,8 @@ class PetitionsTableSeeder extends Seeder
         DB::table('petitions')->insert([
             'date' => '2022-02-22',
             'status' => 'cancelled',
+            'senderName' => $sender->fullName,
+            'senderUserName' => $sender->userName,
             'sender' => $sender->id,
             'receiver' => $receiver->id
         ]);
@@ -29,6 +31,8 @@ class PetitionsTableSeeder extends Seeder
         DB::table('petitions')->insert([
             'date' => '2022-02-22',
             'status' => 'rejected',
+            'senderName' => $sender->fullName,
+            'senderUserName' => $sender->userName,
             'sender' => $sender->id,
             'receiver' => $receiver->id
         ]);
@@ -36,6 +40,8 @@ class PetitionsTableSeeder extends Seeder
         DB::table('petitions')->insert([
             'date' => '2022-02-22',
             'status' => 'pending',
+            'senderName' => $sender->fullName,
+            'senderUserName' => $sender->userName,
             'sender' => $sender->id,
             'receiver' => $receiver->id
         ]);
