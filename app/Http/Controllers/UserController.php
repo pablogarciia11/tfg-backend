@@ -69,7 +69,7 @@ class UserController extends Controller
         $user->fullName = $request->firstName . ' ' . $request->lastName;
         $user->email = $request->email;
         $user->userName = $request->userName;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->birth = $request->birth;
         $user->role = $request->role;
         $user->trainer = $request->trainer;
