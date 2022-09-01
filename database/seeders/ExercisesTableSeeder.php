@@ -59,7 +59,7 @@ class ExercisesTableSeeder extends Seeder
             'secondMuscle' => '',
             'description' => '',
             'createdBy' => $trainer->id,
-            'video' => ''            
+            'video' => 'https://www.youtube.com/watch?v=umiNqixhh-c&ab_channel=FitKamp'            
         ]);
 
         DB::table('exercises')->insert([

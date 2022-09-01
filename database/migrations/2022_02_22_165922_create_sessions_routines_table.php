@@ -20,6 +20,8 @@ class CreateSessionsRoutinesTable extends Migration
             $table->string('weekDay');
             $table->date('date')->nullable();
             $table->boolean('completed');
+            $table->unsignedBigInteger('userId')->nullable();
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('sessionId');
             $table->foreign('sessionId')->references('id')->on('sessions')->onDelete('cascade');
             $table->unsignedBigInteger('routineId');

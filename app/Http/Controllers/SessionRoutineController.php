@@ -41,6 +41,7 @@ class SessionRoutineController extends Controller
         $sessionRoutine->weekDay = $request->weekDay;
         $sessionRoutine->date = $request->date;
         $sessionRoutine->completed = $request->completed;
+        $sessionRoutine->userId = $request->userId;
         $sessionRoutine->sessionId = $request->sessionId;
         $sessionRoutine->routineId = $request->routineId;
 
@@ -65,6 +66,7 @@ class SessionRoutineController extends Controller
         $sessionRoutine->weekDay = $request->weekDay;
         $sessionRoutine->date = $request->date;
         $sessionRoutine->completed = $request->completed;
+        $sessionRoutine->userId = $request->userId;
         $sessionRoutine->sessionId = $request->sessionId;
         $sessionRoutine->routineId = $request->routineId;
 

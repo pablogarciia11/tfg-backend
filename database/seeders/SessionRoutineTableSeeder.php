@@ -16,6 +16,7 @@ class SessionRoutineTableSeeder extends Seeder
     {
         DB::table('sessions_routines')->delete();
 
+        $user = DB::table('users')->where('firstName', 'Pablo')->first();
         $session = DB::table('sessions')->where('name', 'Sesión de tracción')->first();
         $session2 = DB::table('sessions')->where('name', 'Sesión de tren inferior')->first();
         $session3 = DB::table('sessions')->where('name', 'Sesión de empuje')->first();
@@ -27,6 +28,7 @@ class SessionRoutineTableSeeder extends Seeder
             'day' => 0,
             'date' => '2022-09-07',
             'completed' => false,
+            'userId' => $user->id,
             'sessionId' => $session->id,
             'routineId' => $routine->id
         ]);
@@ -37,6 +39,7 @@ class SessionRoutineTableSeeder extends Seeder
             'day' => 2,
             'date' => '2022-09-09',
             'completed' => false,
+            'userId' => $user->id,
             'sessionId' => $session2->id,
             'routineId' => $routine->id
         ]);
@@ -47,6 +50,7 @@ class SessionRoutineTableSeeder extends Seeder
             'day' => 4,
             'date' => '2022-09-11',
             'completed' => false,
+            'userId' => $user->id,
             'sessionId' => $session3->id,
             'routineId' => $routine->id
         ]);
